@@ -72,6 +72,7 @@ features = [
 [workspace]
 members = [
     "examples/counter",
+    "examples/menu",
     "examples/server_interaction",
     "examples/todomvc",
     "examples/window_events",
