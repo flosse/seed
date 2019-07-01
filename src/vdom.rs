@@ -919,18 +919,17 @@ pub(crate) fn patch<'a, Ms, Mdl, ElC: ElContainer<Ms>>(
     // Now purge any existing no-longer-needed children; they're not part of the new vdom.
     //    while let Some(mut child) = old_children_iter.next() {
     for mut child in old_children_iter {
-        let child_el_ws = child.el_ws.take().expect("Missing child el_ws");
-
-        // TODO: DRY here between this and earlier in func
-        if let Some(unmount_actions) = &mut child.hooks.will_unmount {
-            (unmount_actions.actions)(&child_el_ws);
-        }
-
-        // todo get to the bottom of this: Ie why we need this code sometimes when using raw html elements.
-        match old_el_ws.remove_child(&child_el_ws) {
-            Ok(_) => {}
-            Err(_) => {
-                crate::error("Minor error patching html element. (remove)");
+        if let Some(child_el_ws) = child.el_ws.take() {
+            // TODO: DRY here between this and earlier in func
+            if let Some(unmount_actions) = &mut child.hooks.will_unmount {
+                (unmount_actions.actions)(&child_el_ws);
+            }
+            // todo get to the bottom of this: Ie why we need this code sometimes when using raw html elements.
+            match old_el_ws.remove_child(&child_el_ws) {
+                Ok(_) => {}
+                Err(_) => {
+                    crate::error("Minor error patching html element. (remove)");
+                }
             }
         }
     }
