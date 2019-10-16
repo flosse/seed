@@ -587,6 +587,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "routes-bug"
+version = "0.0.0"
+dependencies = [
+ "seed 0.4.1",
+ "wasm-bindgen 0.2.45 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "rustc-demangle"
 version = "0.1.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"

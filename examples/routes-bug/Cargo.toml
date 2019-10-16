@@ -1,0 +1,12 @@
+[package]
+name = "routes-bug"
+version = "0.0.0"
+authors = ["Don't ask"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+seed = {path = "../../"}
+wasm-bindgen = "0.2.45"

@@ -99,6 +99,7 @@ members = [
     "examples/update_from_js",
     "examples/websocket",
     "examples/window_events",
+    "examples/routes-bug",
 ]
 
 exclude = [
