@@ -108,6 +108,7 @@ members = [
     "examples/user_media",
     "examples/websocket",
     "examples/window_events",
+    "examples/routes-bug",
 ]
 
 exclude = [
